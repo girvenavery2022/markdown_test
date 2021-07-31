@@ -117,9 +117,9 @@ Our workspace, ros2_examples_ws, will be an overlay on top of the existing ROS 2
 Build the workspace
 
 In the root of the workspace, run colcon build. Since build types such as ament_cmake do not support the concept of the devel space and require the package to be installed, colcon supports the option --symlink-install. This allows the installed files to be changed by changing the files in the source space (e.g. Python files or other not compiled resourced) for faster iteration.
-
+```
 colcon build --symlink-install
-
+```
 After the build is finished, we should see the build, install, and log directories:
 
 .
@@ -133,15 +133,15 @@ After the build is finished, we should see the build, install, and log directori
 ## Run tests
 
 To run tests for the packages we just built, run the following:
-
+```
 colcon test
-
+```
 ## Source the environment
 
 When colcon has completed building successfully, the output will be in the install directory. Before you can use any of the installed executables or libraries, you will need to add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help setup the environment. These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
-
+```
 . install/setup.bash
-
+```
 ## Background
 
 ROS 2 relies on the notion of combining workspaces using the shell environment. “Workspace” is a ROS term for the location on your system where you’re developing with ROS 2. The core ROS 2 workspace is called the underlay. Subsequent local workspaces are called overlays. When developing with ROS 2, you will typically have several workspaces active concurrently.
