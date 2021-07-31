@@ -4,7 +4,7 @@
 Make sure you have a locale which supports UTF-8. If you are in a minimal environment (such as a docker container), the locale may be something minimal like POSIX. We test with the following settings. However, it should be fine if you’re using a different UTF-8 supported locale.
 
 locale  # check for UTF-8
-
+```
 sudo apt update && sudo apt install locales
 
 sudo locale-gen en_US en_US.UTF-8
@@ -13,6 +13,7 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
 export LANG=en_US.UTF-8
 
+```
 locale  # verify settings
 
 ## Setup Sources
@@ -116,10 +117,6 @@ It is important that we have sourced the environment for an existing ROS 2 insta
 
 Our workspace, ros2_examples_ws, will be an overlay on top of the existing ROS 2 installation. In general, it is recommended to use an overlay when you plan to iterate on a small number of packages, rather than putting all of your packages into the same workspace.
 Build the workspace
-
-Attention
-
-To build packages on Windows you need to be in a Visual Studio environment, see Building the ROS 2 Code for more details.
 
 In the root of the workspace, run colcon build. Since build types such as ament_cmake do not support the concept of the devel space and require the package to be installed, colcon supports the option --symlink-install. This allows the installed files to be changed by changing the files in the source space (e.g. Python files or other not compiled resourced) for faster iteration.
 
