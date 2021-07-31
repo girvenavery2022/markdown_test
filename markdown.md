@@ -92,7 +92,7 @@ At this point the workspace contains a single empty directory src:
 
 ## Add some sources
 
-Let's setup the Ros2 mammoth directory 
+Let's setup the Ros2 Mammoth directory 
 1. Head over to https://github.com/iscumd/Mammoth
 2. Next, Fork Mammoth to your Github
 3. After that run the command https://github.com/girvenavery2022/Mammoth.git in your src directory 
@@ -113,8 +113,9 @@ Now the workspace should have the source code to the Mammoth:
 
 It is important that we have sourced the environment for an existing ROS 2 installation that will provide our workspace with the necessary build dependencies for the example packages. This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see Installation). We call this environment an underlay.
 
-Our workspace, ros2_examples_ws, will be an overlay on top of the existing ROS 2 installation. In general, it is recommended to use an overlay when you plan to iterate on a small number of packages, rather than putting all of your packages into the same workspace.
-Build the workspace
+Our workspace, ros2_ws, will be an overlay on top of the existing ROS 2 installation. In general, it is recommended to use an overlay when you plan to iterate on a small number of packages, rather than putting all of your packages into the same workspace.
+
+## Build the workspace
 
 In the root of the workspace, run colcon build. Since build types such as ament_cmake do not support the concept of the devel space and require the package to be installed, colcon supports the option --symlink-install. This allows the installed files to be changed by changing the files in the source space (e.g. Python files or other not compiled resourced) for faster iteration.
 ```
@@ -161,7 +162,7 @@ If you are using Linux or macOS, but are not already familiar with the shell, th
 
 You will need to run this command on every new shell you open to have access to the ROS 2 commands, like so:
 ```
-source /opt/ros/galactic/setup.bash
+source /opt/ros/foxy/setup.bash
 ```
 
 Note
