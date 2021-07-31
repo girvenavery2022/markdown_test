@@ -8,14 +8,11 @@ locale  # check for UTF-8
 sudo apt update && sudo apt install locales
 
 sudo locale-gen en_US en_US.UTF-8
-
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-
 export LANG=en_US.UTF-8
 
-```
 locale  # verify settings
-
+```
 ## Setup Sources
 
 You will need to add the ROS 2 apt repositories to your system. To do so, first authorize our GPG key with apt like this:
@@ -24,36 +21,37 @@ sudo apt update && sudo apt install curl gnupg2 lsb-release
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 And then add the repository to your sources list:
-
+```
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-
+```
 ## Install ROS 2 packages
 
 Update your apt repository caches after setting up the repositories.
-
+```
 sudo apt update
+```
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
-
+```
 sudo apt install ros-foxy-desktop
-
+```
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools. No GUI tools.
-
+```
 sudo apt install ros-foxy-ros-base
-
+```
 ## Environment setup
 
 Sourcing the setup script
 
 Set up your environment by sourcing the following file.
-
+```
 source /opt/ros/foxy/setup.bash
-
+```
 ## Prerequisites to installing colcon 
 Install colcon
-
+```
 sudo apt install python3-colcon-common-extensions
-
+```
 Install ROS 2
 
 To build the samples, you will need to install ROS 2.
@@ -162,8 +160,9 @@ If you are using Linux or macOS, but are not already familiar with the shell, th
 1. Source the setup files
 
 You will need to run this command on every new shell you open to have access to the ROS 2 commands, like so:
-
+```
 source /opt/ros/galactic/setup.bash
+```
 
 Note
 
@@ -178,16 +177,17 @@ To undo this, locate your system’s shell startup script and remove the appende
 3. Add colcon_cd to your shell startup script
 
 The command colcon_cd allows you to quickly change the current working directory of your shell to the directory of a package. As an example colcon_cd some_ros_package would quickly bring you to the directory ~/ros2_install/src/some_ros_package.
-
+```
 echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
 echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
-
+```
 Depending to the way you installed colcon_cd and where your workspace is, the instructions above may vary, please refer to the documentation for more details. To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
 4. Check environment variables
 
 Sourcing ROS 2 setup files will set several environment variables necessary for operating ROS 2. If you ever have problems finding or using your ROS 2 packages, make sure that your environment is properly setup using the following command:
-
+```
 printenv | grep -i ROS
+```
 
 Check that variables like ROS_DISTRO and ROS_VERSION are set.
 
@@ -201,13 +201,13 @@ If the environment variables are not set correctly, return to the ROS 2 package 
 See the domain ID article for details on ROS domain IDs.
 
 Once you have determined a unique integer for your group of ROS 2 agents, you can set the environment variable with the following command:
-
+```
 export ROS_DOMAIN_ID=<your_domain_id>
-
+```
 To maintain this setting between shell sessions, you can add the command to your shell startup script:
-
+```
 echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
-
+```
 ## Summary
 
 The ROS 2 development environment needs to be correctly configured before use. This can be done in two ways: either sourcing the setup files in every new shell you open, or adding the source command to your startup script.
