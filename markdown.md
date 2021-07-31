@@ -80,8 +80,8 @@ Create a workspace
 
 First, create a directory (ros2_example_ws) to contain our workspace:
 
-mkdir -p ~/ros2_example_ws/src
-cd ~/ros2_example_ws
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
 
 At this point the workspace contains a single empty directory src:
 
@@ -92,22 +92,22 @@ At this point the workspace contains a single empty directory src:
 
 ## Add some sources
 
-Let’s clone the examples repository into the src directory of the workspace:
+Let's setup the Ros2 mammoth directory 
+1. Head over to https://github.com/iscumd/Mammoth
+2. Next, Fork Mammoth to your Github
+3. After that run the command https://github.com/girvenavery2022/Mammoth.git in your src directory 
 
-git clone https://github.com/ros2/examples src/examples -b galactic
 
-Now the workspace should have the source code to the ROS 2 examples:
+Now the workspace should have the source code to the Mammoth:
 
 .
 └── src
-    └── examples
-        ├── CONTRIBUTING.md
-        ├── LICENSE
-        ├── rclcpp
-        ├── rclpy
-        └── README.md
+    └── lidar_processor
+    └── mammoth
+    └── ros_ign
 
-4 directories, 3 files
+
+4 directories
 
 ## Source an underlay
 
